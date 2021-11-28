@@ -5,3 +5,33 @@
 (сейчас версия [jQuery-плагина](https://www.npmjs.com/package/suggestions-jquery) - 21.8.0)
 
 Пришлось немного подправить вывод выпадающего списка
+
+Подключение:
+1. Подключаем файл с библиотекой
+2. suggestions.init(input_element, {dadatda_options})
+
+Например:
+
+	const ddtoken = 'respectful_token';
+	const input_element = document.getElementById('respectful_input');
+
+	try {
+
+	suggestions.init(input_element, {
+		token: ddtoken,
+		type: "ADDRESS",
+		hint: false,
+		bounds: "city",
+		onSelect: (suggestion) => {
+			let region = suggestion.data.region_iso_code;
+			let sCity = suggestion.data.city;
+			// и т.д.
+
+			citySelect_close();
+			setTimeout(()=>{input_element.value = ''},100);
+		}
+	});
+
+	} catch (err) {
+		console.error(err)
+	}
