@@ -26,9 +26,6 @@
 			let region = suggestion.data.region_iso_code;
 			let sCity = suggestion.data.city;
 			// и т.д.
-
-			citySelect_close();
-			setTimeout(()=>{input_element.value = ''},100);
 		}
 	});
 
